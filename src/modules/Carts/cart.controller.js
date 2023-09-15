@@ -8,7 +8,7 @@ export const addToCart = async (req, res, next) => {
   if (!productExists || productExists.stock < quantity) {
     return next(new Error('invalid process'))
   }
-  const userCart = await cartModel.findOne({ userId }). 
+  const userCart = await cartModel.findOne({ userId }).lean()
   if (userCart) {
     let subTotal = 0
     let update = false
@@ -37,6 +37,7 @@ export const addToCart = async (req, res, next) => {
     )
     return res.status(200).json({ message: 'ProductAddedDone', cart })
   }
+  
 
   const cartObject = {
     userId,

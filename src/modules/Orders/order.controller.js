@@ -4,12 +4,8 @@ import { couponModel } from '../../../DB/Models/coupon.model.js'
 import { orderModel } from '../../../DB/Models/order.model.js'
 import { productModel } from '../../../DB/Models/product.model.js'
 import { isCouponValid } from '../../utils/couponValidation.js'
-import createInvoice from '../../utils/pdfkit.js'
-import { sendEmailService } from '../../services/sendEmailService.js'
-import { generateToken, verifyToken } from '../../utils/tokenFunctions.js'
-import Stripe from 'stripe'
-import { qrCodeFunction } from '../../utils/qrCode.js'
-import { paymentFunction } from '../../utils/payment.js'
+
+// import { qrCodeFunction } from '../../utils/qrCode.js'
 
 // ========================== create order =================
 export const createOrder = async (req, res, next) => {
